@@ -6,6 +6,8 @@
 #include <openssl/sha.h>
 #include <iostream>
 
+
+// To deprecate
 const char *chainType512Name(ChainType512 type) {
 	switch (type) {
 		case ChainType512_Arbitary: return "Arbitary";

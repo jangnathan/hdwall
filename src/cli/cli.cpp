@@ -60,7 +60,7 @@ void appendBranch512TUI() {
 
 	cout << "BRANCH (HEX): ";
 	for (int i = 0; i < 64; i++) {
-		cout << hex << static_cast<int>(buf[i]);
+		cout << hex << std::setfill('0') << std::setw(2) << static_cast<int>(buf[i]);
 	}
 	cout << "\n";
 }
