@@ -77,14 +77,14 @@ void rootOptionHandler(string op) {
 		// print hex priv key 32 bytes
 		cout << "\n";
 		for (int i = 0; i < 32; i++) {
-			cout << hex << static_cast<int>(wallet->hash512[i]);
+			cout << hex << std::setfill('0') << std::setw(2) << static_cast<int>(wallet->hash512[i]);
 		}
 		cout << "\ny?";
 
 		string n;
 		cin >> n; // wait
 	} else if (op == "b58") {
-			LOG_DEBUG("WARN: Not found a use case for this");
+		LOG_DEBUG("WARN: Not found a use case for this");
 	} else {
 		cout << "Not an option\n";
 	}
@@ -104,7 +104,7 @@ bool cliEnterMasterKey() {
 
 	size_t outLen = 0;
 	bool result = decodeStrToHex(wallet->masterKey.data(), wallet->masterKey.size(), &outLen, 
-								masterKeyStr.data(), masterKeyStr.size());
+															masterKeyStr.data(), masterKeyStr.size());
 
 	wallet->masterKey.resize(outLen);
 	if (!result) {
